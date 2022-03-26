@@ -1,6 +1,5 @@
 flask
 flask-session
 pymysql
-mwoauth
 requests
 requests-oauthlib

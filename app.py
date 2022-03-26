@@ -14,7 +14,9 @@ with open(join(__dir__, 'config.json'), "r") as f:
 ##########################
 
 app.register_blueprint(oauth, url_prefix='/')
-
+@app.post('/integrate')
+def integrate():
+    os.system('git pull')
 
 @app.get("/")
 def index():
