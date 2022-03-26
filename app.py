@@ -21,7 +21,7 @@ def integrate():
     return 'OK'
 @app.get("/")
 def index():
-    return "Okay"
+    return "Okay, Success"
 
 if __name__ == '__main__':
     app.run(debug=True)
