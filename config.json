@@ -1,0 +1,7 @@
+{
+    "PORT": 3000,
+    "CONSUMER_KEY": "62fd37e7eb199d6997418ebd90c75268",
+    "CONSUMER_SECRET": "66f9bb96cdbdad9d153fa9ce7f28ab0f8b82c76d",
+    "CALLBACK_URL": "http://localhost:5000/",
+    "SECRET_KEY": "secret"
+}
