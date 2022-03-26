@@ -22,7 +22,7 @@ def integrate():
 
 @app.get("/")
 def index():
-    return "Hello World!"
+    return "Okay"
 
 if __name__ == '__main__':
     app.run(debug=True)
