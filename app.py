@@ -17,6 +17,7 @@ app.register_blueprint(oauth, url_prefix='/')
 @app.post('/integrate')
 def integrate():
     os.system('git pull')
+    return 'OK'
 
 @app.get("/")
 def index():

@@ -8,8 +8,8 @@ from requests_oauthlib import OAuth1Session
 oauth = Blueprint('oauth', __name__)
 @oauth.get('/login')
 def login():
-    consumer_key : str = current_app.config['CONSUMER_KEY']
-    consumer_secret : str = current_app.config['CONSUMER_SECRET']
+    consumer_key = current_app.config['CONSUMER_KEY']
+    consumer_secret = current_app.config['CONSUMER_SECRET']
     oauth_session = OAuth1Session(
         consumer_key,
         client_secret=consumer_secret,
@@ -23,8 +23,8 @@ def login():
     return redirect(authorization_url)
 @oauth.get('/callback')
 def callback():
-    consumer_key : str = current_app.config['CONSUMER_KEY']
-    consumer_secret : str = current_app.config['CONSUMER_SECRET']
+    consumer_key = current_app.config['CONSUMER_KEY']
+    consumer_secret = current_app.config['CONSUMER_SECRET']
     oauth_session = OAuth1Session(
         consumer_key,
         client_secret=consumer_secret,
