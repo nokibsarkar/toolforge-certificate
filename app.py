@@ -19,7 +19,6 @@ app.register_blueprint(oauth, url_prefix='/')
 def integrate():
     os.system('git pull && webservice stop && webservice python3.7 start')
     return 'OK'
-
 @app.get("/")
 def index():
     return "Okay"
