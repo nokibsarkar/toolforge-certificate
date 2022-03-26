@@ -1,7 +1,8 @@
+import os
+from os.path import join, dirname
+os.system("pip install -r requirements.txt")
 from flask import Flask, render_template, request, redirect, url_for, session
 from oauth import oauth
-from os.path import join, dirname
-import os
 import json
 app = Flask(__name__)
 __dir__ = dirname(__file__)
