@@ -17,7 +17,7 @@ with open(join(__dir__, 'config.json'), "r") as f:
 app.register_blueprint(oauth, url_prefix='/')
 @app.post('/integrate')
 def integrate():
-    os.system('git pull')
+    os.system('git pull && webservice stop && webservice python3.7 start')
     return 'OK'
 
 @app.get("/")
