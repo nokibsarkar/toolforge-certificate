@@ -1,11 +1,16 @@
 import os
 from os.path import join, dirname
-os.system("pip install -r requirements.txt")
 from flask import Flask, render_template, request, redirect, url_for, session
 from oauth import oauth
 import json
-app = Flask(__name__)
 __dir__ = dirname(__file__)
+app = Flask(
+    __name__,
+    template_folder = join(__dir__, 'templates'),
+    static_folder= join(__dir__, 'static'),
+    static_url_path='/static'
+)
+
 with open(join(__dir__, 'config.json'), "r") as f:
     app.config.update(json.load(f))
 
@@ -21,7 +26,12 @@ def integrate():
     return 'OK'
 @app.get("/")
 def index():
-    return "Okay, Success hi"
+    user = {
+        'bn_name' : 'Nokib',
+        'certificates' : [],
+        'workshops' : []
+    }
+    return render_template('index.jinja', user= user)
 
 if __name__ == '__main__':
     app.run(debug=True)

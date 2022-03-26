@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>প্রধান পাতা</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+    {% if user %}
+        <form><a href="login.php?logout"><button>প্রস্থান</button></a></form>
+        <h1>
+            স্বাগতম {{user.bn_name}}
+        </h1>
+        <div>
+            <details>
+                <summary>চলমান কর্মশালা</summary>
+                <ol>
+                    {% for workshop in user.workshops %}
+                        <li><a href="workshop.php?ID={{workshop.id}}">
+                                {{workshop.title}}
+                            </a>(
+                            {{workshop.from}} - {{workshop.to}}
+                        </li>
+                        {% endfor %}
+                </ol>
+            </details>
+            <details id="details">
+                <summary>সনদপত্র</summary>
+                <ol style='margin-left: 5%;'>
+                    {% for certificates in user.certificates %}
+                        <li><a href='certify.php?i={{certificate.id}}' class='cert'>
+                                {{certificate.title}}
+                            </a></li>
+                        {% endfor %}
+                </ol>
+                {% else %}
+                    <a href="login.php"><button>প্রবেশ</button></a>
+                    {% endif %}
+            </details>
+        </div>
+
+        <div style="margin-top: 5%;">
+            <h3>
+                যোগাযোগ
+            </h3>
+            <div class="contact">
+                <h4>নাজমুল হক নকীব</h4>
+                আধানডাক: <a href="mailto:nokibsarkar@gmail.com">nokibsarkar@gmail.com</a><br>
+                ফেসবুক: <a href='https://www.facebook.com/nokib.sorkar' target="_blank"><img
+                        src="/static/css/f_logo_RGB-Blue_58.png" style="width: 1em;">/nokib.sarkar</a>
+            </div>
+            <div class="contact">
+                <h4>মুতাসিম ভূইয়া রাফিদ</h4>
+                আধানডাক: <a href="mailto:rafeedm.bhuiyan@gmail.com">rafeedm.bhuiyan@gmail.com</a>
+            </div>
+            <div class="contact">
+                <h4>সাইটের উৎস: <a href='https://github.com/nokibsarkar/certify' target="_blank"><img
+                            src="/static/css/GitHub-Mark-120px-plus.png" style="width: 1em;"> গিটহাব</a></h4>
+            </div>
+
+        </div>
+</body>
+
+</html>
